@@ -78,7 +78,7 @@
       
         <!-- 图像占位 -->
         <div style="text-align:center; margin-top:2rem;">
-          <img src="fig/pattern.png" 
+          <img src="./fig/pattern.png" 
                alt="System Overview of SWhisper" 
                style="max-width:95%; height:auto; border:1px solid #ccc; border-radius:6px; display:block; margin:0 auto;">
           <p style="font-size:0.9em; color:#555; text-align:center;">
@@ -106,7 +106,7 @@
 
 
     <div style="text-align:center; margin-top:2rem;">
-      <img src="fig/introduction.png" 
+      <img src="./fig/introduction.png" 
            alt="lustration of inaudible jailbreak attacks against on-device LLMs under human-noisy environments. The attacker injects adversarial audio commands that are imperceptible to humans but captured by the device. Once jailbroken, the on-device LLM can be misused to trigger harmful behaviors." 
            style="max-width:60%; height:auto; border:1px solid #ccc; border-radius:6px; display:block; margin:0 auto;">
       <p style="font-size:0.9em; color:#555; text-align:left;">
@@ -128,19 +128,19 @@
     <div class="carousel-container">
       <div class="carousel-slide">
         <figure>
-          <img src="fig/angle.png" alt="Result 1">
+          <img src="./fig/angle.png" alt="Result 1">
           <figcaption>Figure 1. Impact of Attack Angle</figcaption>
         </figure>
         <figure>
-          <img src="fig/device.png" alt="Result 2">
+          <img src="./fig/device.png" alt="Result 2">
           <figcaption>Figure 2. Cross-Device Evaluation</figcaption>
         </figure>
         <figure>
-          <img src="fig/distance.png" alt="Result 3">
+          <img src="./fig/distance.png" alt="Result 3">
           <figcaption>Figure 3. Effect of Distance</figcaption>
         </figure>
         <figure>
-          <img src="fig/method.png" alt="Result 4">
+          <img src="./fig/method.png" alt="Result 4">
           <figcaption>Figure 4. Comparison with Baselines</figcaption>
         </figure>
       </div>
@@ -161,23 +161,37 @@
         display: flex;
         transition: transform 0.8s ease-in-out;
       }
-
       .carousel-slide figure {
-        flex: 0 0 80%;      /* 每张图占 80% 宽度 */
-        margin: 0 10px;     /* 左右间隔，能露出部分边 */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+      flex: 0 0 70%;        /* 默认每张图占 70% 宽度 */
+      margin: 0 15px;       /* 左右各留 15px 空隙 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.5s ease; /* 切换时平滑动画 */
+    }
 
-      .carousel-slide img {
-        width: 100%;
-        max-height: 480px;
-        object-fit: contain;
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      }
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
 
+    /* 在大屏幕（桌面端）上适当放大 */
+    @media (min-width: 1024px) {
+      .carousel-slide figure {
+        flex: 0 0 60%;    /* 桌面端更大一些 */
+        margin: 0 20px;   /* 两侧空隙也加大 */
+      }
+    }
+
+    /* 在小屏幕（手机端）上稍微缩小 */
+    @media (max-width: 600px) {
+      .carousel-slide figure {
+        flex: 0 0 80%;    /* 占屏幕 80% */
+        margin: 0 10px;   /* 边缘留出 10px */
+      }
+    }
       .carousel-slide figcaption {
         margin-top: 8px;
         font-size: 0.9em;
