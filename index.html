@@ -300,8 +300,301 @@
         // 初始显示
         showSlide(0);
 
-
       </script>
+
+
+<h2 style="text-align:center;">Transferability Results</h2>
+<p style="text-align:center; font-size:0.9rem; color:#666;">
+  * White-box results (gray shaded). Others are black-box transfer results.
+</p>
+
+<div style="overflow-x:auto; margin: 1.5rem 0;">
+  <table style="border-collapse:collapse; width:100%; font-size:14px; text-align:center;">
+    <thead>
+      <tr style="background:#f0f0f0;">
+        <th rowspan="2" style="border:1px solid #ccc; padding:6px;">Target Model</th>
+        <th rowspan="2" style="border:1px solid #ccc; padding:6px;">Method / Surrogate</th>
+        <th colspan="2" style="border:1px solid #ccc; padding:6px;">LLaMA-3.1</th>
+        <th colspan="2" style="border:1px solid #ccc; padding:6px;">Gemma-3</th>
+        <th colspan="2" style="border:1px solid #ccc; padding:6px;">Qwen2.5</th>
+        <th colspan="2" style="border:1px solid #ccc; padding:6px;">Mistral</th>
+      </tr>
+      <tr style="background:#f0f0f0;">
+        <th style="border:1px solid #ccc; padding:6px;">NR↑</th>
+        <th style="border:1px solid #ccc; padding:6px;">SC↑</th>
+        <th style="border:1px solid #ccc; padding:6px;">NR↑</th>
+        <th style="border:1px solid #ccc; padding:6px;">SC↑</th>
+        <th style="border:1px solid #ccc; padding:6px;">NR↑</th>
+        <th style="border:1px solid #ccc; padding:6px;">SC↑</th>
+        <th style="border:1px solid #ccc; padding:6px;">NR↑</th>
+        <th style="border:1px solid #ccc; padding:6px;">SC↑</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- ========== Llama-3.1-8B ========== -->
+      <tr>
+        <td rowspan="5" style="border:1px solid #ccc; padding:6px;">Llama-3.1-8B</td>
+        <td style="border:1px solid #ccc; padding:6px;">GCG</td>
+        <td style="background:#eee;">0.020*</td><td style="background:#eee;">0.020*</td>
+        <td>0.000</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0.020</td><td>0.020</td>
+      </tr>
+      <tr>
+        <td>IGCG</td>
+        <td style="background:#eee;">0.000*</td><td style="background:#eee;">0.000*</td>
+        <td>0.000</td><td>0.000</td><td>0.020</td><td>0.020</td><td>0.000</td><td>0.000</td>
+      </tr>
+      <tr>
+        <td>PAIR</td>
+        <td style="background:#eee;">0.140*</td><td style="background:#eee;">0.105*</td>
+        <td>0.120</td><td>0.105</td><td>0.100</td><td>0.095</td><td>0.160</td><td>0.135</td>
+      </tr>
+      <tr>
+        <td>Auto-DAN</td>
+        <td style="background:#eee;">0.300*</td><td style="background:#eee;">0.298*</td>
+        <td>0.160</td><td>0.160</td><td>0.180</td><td>0.180</td><td>0.280</td><td>0.270</td>
+      </tr>
+      <tr>
+        <td><b>Ours</b></td>
+        <td style="background:#eee;"><b>0.960*</b></td><td style="background:#eee;"><b>0.945*</b></td>
+        <td><b>0.540</b></td><td><b>0.525</b></td><td><b>0.580</b></td><td><b>0.578</b></td><td><b>0.460</b></td><td><b>0.458</b></td>
+      </tr>
+
+      <!-- ========== Gemma-3-4B ========== -->
+      <tr>
+        <td rowspan="5">Gemma-3-4B</td>
+        <td>GCG</td>
+        <td>0.100</td><td>0.043</td>
+        <td style="background:#eee;">0.160*</td><td style="background:#eee;">0.093*</td>
+        <td>0.240</td><td>0.100</td><td>0.220</td><td>0.080</td>
+      </tr>
+      <tr>
+        <td>IGCG</td>
+        <td>0.240</td><td>0.093</td>
+        <td style="background:#eee;">0.320*</td><td style="background:#eee;">0.118*</td>
+        <td>0.180</td><td>0.075</td><td>0.180</td><td>0.020</td>
+      </tr>
+      <tr>
+        <td>PAIR</td>
+        <td>0.320</td><td>0.213</td>
+        <td style="background:#eee;">0.580*</td><td style="background:#eee;">0.350*</td>
+        <td>0.440</td><td>0.303</td><td>0.450</td><td>0.325</td>
+      </tr>
+      <tr>
+        <td>Auto-DAN</td>
+        <td>0.400</td><td>0.193</td>
+        <td style="background:#eee;">0.500*</td><td style="background:#eee;">0.280*</td>
+        <td>0.520</td><td>0.358</td><td>0.540</td><td>0.360</td>
+      </tr>
+      <tr>
+        <td><b>Ours</b></td>
+        <td><b>0.620</b></td><td><b>0.435</b></td>
+        <td style="background:#eee;"><b>0.660*</b></td><td style="background:#eee;"><b>0.423*</b></td>
+        <td><b>0.640</b></td><td><b>0.375</b></td><td><b>0.500</b></td><td><b>0.350</b></td>
+      </tr>
+
+      <!-- ========== Qwen2.5-7B ========== -->
+      <tr>
+        <td rowspan="5">Qwen2.5-7B</td>
+        <td>GCG</td>
+        <td>0.060</td><td>0.050</td><td>0.040</td><td>0.038</td>
+        <td style="background:#eee;">0.100*</td><td style="background:#eee;">0.068*</td>
+        <td>0.040</td><td>0.015</td>
+      </tr>
+      <tr>
+        <td>IGCG</td>
+        <td>0.180</td><td>0.136</td><td>0.060</td><td>0.043</td>
+        <td style="background:#eee;">0.020*</td><td style="background:#eee;">0.020*</td>
+        <td>0.040</td><td>0.033</td>
+      </tr>
+      <tr>
+        <td>PAIR</td>
+        <td>0.200</td><td>0.173</td><td>0.140</td><td>0.110</td>
+        <td style="background:#eee;">0.260*</td><td style="background:#eee;">0.236*</td>
+        <td>0.200</td><td>0.165</td>
+      </tr>
+      <tr>
+        <td>Auto-DAN</td>
+        <td>0.680</td><td>0.638</td><td>0.860</td><td>0.853</td>
+        <td style="background:#eee;">0.880*</td><td style="background:#eee;">0.873*</td>
+        <td>0.880</td><td>0.860</td>
+      </tr>
+      <tr>
+        <td><b>Ours</b></td>
+        <td><b>1.000</b></td><td><b>0.935</b></td><td><b>0.960</b></td><td><b>0.860</b></td>
+        <td style="background:#eee;"><b>0.880*</b></td><td style="background:#eee;"><b>0.680*</b></td>
+        <td><b>0.920</b></td><td><b>0.810</b></td>
+      </tr>
+
+      <!-- ========== Mistral-7B ========== -->
+      <tr>
+        <td rowspan="5">Mistral-7B</td>
+        <td>GCG</td>
+        <td>0.580</td><td>0.543</td><td>0.500</td><td>0.385</td><td>0.400</td><td>0.380</td>
+        <td style="background:#eee;">0.520*</td><td style="background:#eee;">0.460*</td>
+      </tr>
+      <tr>
+        <td>IGCG</td>
+        <td>0.600</td><td>0.534</td><td>0.460</td><td>0.433</td><td>0.400</td><td>0.368</td>
+        <td style="background:#eee;">0.440*</td><td style="background:#eee;">0.378*</td>
+      </tr>
+      <tr>
+        <td>PAIR</td>
+        <td>0.580</td><td>0.483</td><td>0.600</td><td>0.520</td><td>0.680</td><td>0.630</td>
+        <td style="background:#eee;">0.540*</td><td style="background:#eee;">0.470*</td>
+      </tr>
+      <tr>
+        <td>Auto-DAN</td>
+        <td>0.880</td><td>0.835</td><td>0.860</td><td>0.840</td><td>0.960</td><td>0.908</td>
+        <td style="background:#eee;">0.940*</td><td style="background:#eee;">0.918*</td>
+      </tr>
+      <tr>
+        <td><b>Ours</b></td>
+        <td><b>0.960</b></td><td><b>0.943</b></td><td><b>0.940</b></td><td><b>0.915</b></td><td><b>0.940</b></td><td><b>0.900</b></td>
+        <td style="background:#eee;"><b>0.920*</b></td><td style="background:#eee;"><b>0.888*</b></td>
+      </tr>
+
+      <!-- ========== DeepSeek ========== -->
+      <tr>
+        <td rowspan="5">DeepSeek</td>
+        <td>GCG</td>
+        <td>0.120</td><td>0.115</td><td>0.060</td><td>0.060</td><td>0.000</td><td>0.000</td><td>0.040</td><td>0.018</td>
+      </tr>
+      <tr>
+        <td>IGCG</td>
+        <td>0.080</td><td>0.073</td><td>0.020</td><td>0.020</td><td>0.020</td><td>0.013</td><td>0.000</td><td>0.000</td>
+      </tr>
+      <tr>
+        <td>PAIR</td>
+        <td>0.300</td><td>0.280</td><td>0.120</td><td>0.113</td><td>0.360</td><td>0.318</td><td>0.280</td><td>0.263</td>
+      </tr>
+      <tr>
+        <td>Auto-DAN</td>
+        <td>0.680</td><td>0.638</td><td>0.820</td><td>0.820</td><td>0.720</td><td>0.708</td><td>0.680</td><td>0.678</td>
+      </tr>
+      <tr>
+        <td><b>Ours</b></td>
+        <td><b>0.780</b></td><td><b>0.745</b></td><td><b>0.740</b></td><td><b>0.715</b></td><td><b>0.720</b></td><td><b>0.713</b></td><td><b>0.560</b></td><td><b>0.538</b></td>
+      </tr>
+
+      <!-- ========== GLM-4-Air ========== -->
+      <tr>
+        <td rowspan="5">GLM-4-Air</td>
+        <td>GCG</td>
+        <td>0.040</td><td>0.035</td><td>0.000</td><td>0.000</td><td>0.020</td><td>0.020</td><td>0.020</td><td>0.020</td>
+      </tr>
+      <tr>
+        <td>IGCG</td>
+        <td>0.060</td><td>0.053</td><td>0.020</td><td>0.020</td><td>0.020</td><td>0.020</td><td>0.000</td><td>0.000</td>
+      </tr>
+      <tr>
+        <td>PAIR</td>
+        <td>0.180</td><td>0.155</td><td>0.140</td><td>0.138</td><td>0.220</td><td>0.188</td><td>0.180</td><td>0.180</td>
+      </tr>
+      <tr>
+        <td>Auto-DAN</td>
+        <td>0.560</td><td>0.555</td><td>0.680</td><td>0.680</td><td>0.640</td><td>0.623</td><td>0.660</td><td>0.660</td>
+      </tr>
+      <tr>
+        <td><b>Ours</b></td>
+        <td><b>0.920</b></td><td><b>0.885</b></td><td><b>0.940</b></td><td><b>0.925</b></td><td><b>0.900</b></td><td><b>0.860</b></td><td><b>0.860</b></td><td><b>0.853</b></td>
+      </tr>
+
+      <!-- ========== Grok-4 ========== -->
+      <tr>
+        <td rowspan="5">Grok-4</td>
+        <td>GCG</td>
+        <td>0.220</td><td>0.208</td><td>0.100</td><td>0.098</td><td>0.060</td><td>0.060</td><td>0.060</td><td>0.060</td>
+      </tr>
+      <tr>
+        <td>IGCG</td>
+        <td>0.100</td><td>0.093</td><td>0.080</td><td>0.078</td><td>0.060</td><td>0.060</td><td>0.020</td><td>0.020</td>
+      </tr>
+      <tr>
+        <td>PAIR</td>
+        <td>0.460</td><td>0.438</td><td>0.500</td><td>0.475</td><td>0.640</td><td>0.618</td><td>0.460</td><td>0.433</td>
+      </tr>
+      <tr>
+        <td>Auto-DAN</td>
+        <td>0.660</td><td>0.658</td><td>0.780</td><td>0.763</td><td>0.820</td><td>0.820</td><td>0.820</td><td>0.810</td>
+      </tr>
+      <tr>
+        <td><b>Ours</b></td>
+        <td><b>0.780</b></td><td><b>0.733</b></td><td><b>0.700</b></td><td><b>0.655</b></td><td><b>0.760</b></td><td><b>0.725</b></td><td><b>0.700</b></td><td><b>0.660</b></td>
+      </tr>
+    </tbody>
+    <p style="font-size:0.9rem; color:#555; text-align:left; margin-top:0rem;">
+      <b>NR</b> = Non-Refusal Score, the likelihood of the model complying with harmful requests. <br>
+      <b>SC</b> = Specific-Convincing Score, the degree to which responses contain detailed and persuasive harmful instructions.
+    </p>  
+  </table>
+</div>
+
+<div class="table-container">
+  <h2 style="text-align:center;">User Study Results</h2>
+  <p style="text-align:center; font-size:0.9rem; color:#666;">
+    Results of the user study on human perception under speaker playback across different environments.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th rowspan="2">Scenario</th>
+        <th colspan="2">Perception</th>
+        <th rowspan="2">TPR</th>
+        <th rowspan="2">FPR</th>
+      </tr>
+      <tr>
+        <th>Normal ↑</th>
+        <th>Noise ↓</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Quiet</td>
+        <td>1.000</td>
+        <td>0.000</td>
+        <td>0.000</td>
+        <td>0.000</td>
+      </tr>
+      <tr>
+        <td>Office</td>
+        <td>0.996</td>
+        <td>0.004</td>
+        <td>0.008</td>
+        <td>0.000</td>
+      </tr>
+      <tr>
+        <td>Restaurant</td>
+        <td>0.996</td>
+        <td>0.004</td>
+        <td>0.008</td>
+        <td>0.000</td>
+      </tr>
+      <tr>
+        <td>Park</td>
+        <td>0.992</td>
+        <td>0.008</td>
+        <td>0.016</td>
+        <td>0.000</td>
+      </tr>
+      <tr>
+        <td>Street</td>
+        <td>0.980</td>
+        <td>0.020</td>
+        <td>0.016</td>
+        <td>0.024</td>
+      </tr>
+    </tbody>
+    <p style="font-size:0.9rem; color:#555; text-align:left; margin-top:0rem;">
+      <b>TPR</b> = True Positive Rate, the fraction of attack samples correctly identified. <br>
+      <b>FPR</b> = False Positive Rate, the fraction of benign samples misclassified as attacks.
+    </p> 
+  </table>
+</div>
+
+
+<hr style="margin: 2rem 0; border: none; border-top: 1px solid #ccc;">
+
     <section class="container" aria-label="Real-World Demos">
       <h2 class="subheading">Main Demo: Real-World Jailbreak Attack</h2>
 
