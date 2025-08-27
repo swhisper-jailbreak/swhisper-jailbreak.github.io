@@ -109,9 +109,10 @@
         <div style="margin-top: 12px; padding: 14px 16px; border: 1px solid #C4B5FD; background: #EEF2FF; border-radius: 10px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; line-height: 1.6;">
           <b>Contributions</b>
           <ul style="margin: 8px 0 0 18px;">
-            <li><b>New attack vector:</b> Identify a novel <b>physical-layer channel</b> for jailbreak attacks through near-ultrasound and microphone nonlinearity.</li>
-            <li><b>Semantic–acoustic integration:</b> Propose a co-design of <b>prompt optimization</b> and <b>nonlinearity compensation</b> that ensures robustness and pronounceability of adversarial prompts.</li>
-            <li><b>Comprehensive validation:</b> Demonstrate high attack success across diverse LLMs, distances, and noise levels, with a <b>user study confirming imperceptibility</b>.</li>
+            <li><b>Covert acoustic channel:</b> Introduce <i>SWhisper</i>, the first framework enabling <b>inaudible prompt injection</b> against speech-driven LLMs using commodity speakers and microphones by exploiting near-ultrasound modulation and microphone nonlinearity.</li>
+            <li><b>Robust channel-inversion design:</b> Develop a <b>spectrum pre-compensation</b> method that inverts device/channel transfer functions, ensuring reliable reconstruction of any target audio across diverse devices and environments.</li>
+            <li><b>Voice-aware jailbreak prompts:</b> Propose a new <b>semantic- and phonetic-constrained prompt optimization</b> that produces natural, concise, and transferable spoken jailbreak prompts suitable for real-world voice interfaces.</li>
+            <li><b>Extensive real-world validation:</b> Demonstrate high attack success (up to <b>0.94 NR</b> and <b>0.925 SC</b>) under black-box settings, across multiple LLMs, distances, and noise conditions, with a <b>user study confirming imperceptibility (&lt;1%)</b>.</li>
           </ul>
         </div>
         <!-- 图像占位 -->
@@ -201,6 +202,36 @@
           <img src="./fig/wer_all_models.png" alt="Result 9">
           <figcaption>Figure 9. Comparison of WER across models and jailbreak methods.</figcaption>
         </figure>
+        <!-- <figure>
+          <img src="./fig/table/ablationcrossmodel.png" alt="table 1">
+        </figure>
+        <figure>
+          <img src="./fig/table/anglecrossmodel.png" alt="table 2">
+        </figure>
+        <figure>
+          <img src="./fig/table/ASR.png" alt="table 3">
+        </figure>
+        <figure>
+          <img src="./fig/table/devicecrossmodel.png" alt="table 4">
+        </figure>
+        <figure>
+          <img src="./fig/table/LALM.png" alt="table 5">
+        </figure>
+        <figure>
+          <img src="./fig/table/noise.png" alt="table 6">
+        </figure>
+        <figure>
+          <img src="./fig/table/noisetransfer.png" alt="table 7">
+        </figure>
+        <figure>
+          <img src="./fig/table/noisewhitebox.png" alt="table 8">
+        </figure>
+        <figure>
+          <img src="./fig/table/devicecrossmodel.png" alt="table 9">
+        </figure>
+        <figure>
+          <img src="./fig/table/userstudy.png" alt="table 10">
+        </figure> -->
       </div>
       <div class="carousel-dots"></div>
     </div>
@@ -324,7 +355,7 @@
       </script>
 
 
-<h2 style="text-align:center;">Transferability Results</h2>
+<!-- <h2 style="text-align:center;">Transferability Results</h2>
 <p style="text-align:center; font-size:0.9rem; color:#666;">
   * White-box results (gray shaded). Others are black-box transfer results.
 </p>
@@ -352,7 +383,7 @@
       </tr>
     </thead>
     <tbody>
-      <!-- ========== Llama-3.1-8B ========== -->
+      
       <tr>
         <td rowspan="5" style="border:1px solid #ccc; padding:6px;">Llama-3.1-8B</td>
         <td style="border:1px solid #ccc; padding:6px;">GCG</td>
@@ -380,7 +411,7 @@
         <td><b>0.540</b></td><td><b>0.525</b></td><td><b>0.580</b></td><td><b>0.578</b></td><td><b>0.460</b></td><td><b>0.458</b></td>
       </tr>
 
-      <!-- ========== Gemma-3-4B ========== -->
+      
       <tr>
         <td rowspan="5">Gemma-3-4B</td>
         <td>GCG</td>
@@ -413,7 +444,7 @@
         <td><b>0.640</b></td><td><b>0.375</b></td><td><b>0.500</b></td><td><b>0.350</b></td>
       </tr>
 
-      <!-- ========== Qwen2.5-7B ========== -->
+      
       <tr>
         <td rowspan="5">Qwen2.5-7B</td>
         <td>GCG</td>
@@ -446,7 +477,7 @@
         <td><b>0.920</b></td><td><b>0.810</b></td>
       </tr>
 
-      <!-- ========== Mistral-7B ========== -->
+      
       <tr>
         <td rowspan="5">Mistral-7B</td>
         <td>GCG</td>
@@ -474,7 +505,7 @@
         <td style="background:#eee;"><b>0.920*</b></td><td style="background:#eee;"><b>0.888*</b></td>
       </tr>
 
-      <!-- ========== DeepSeek ========== -->
+      
       <tr>
         <td rowspan="5">DeepSeek</td>
         <td>GCG</td>
@@ -497,7 +528,7 @@
         <td><b>0.780</b></td><td><b>0.745</b></td><td><b>0.740</b></td><td><b>0.715</b></td><td><b>0.720</b></td><td><b>0.713</b></td><td><b>0.560</b></td><td><b>0.538</b></td>
       </tr>
 
-      <!-- ========== GLM-4-Air ========== -->
+      
       <tr>
         <td rowspan="5">GLM-4-Air</td>
         <td>GCG</td>
@@ -520,7 +551,7 @@
         <td><b>0.920</b></td><td><b>0.885</b></td><td><b>0.940</b></td><td><b>0.925</b></td><td><b>0.900</b></td><td><b>0.860</b></td><td><b>0.860</b></td><td><b>0.853</b></td>
       </tr>
 
-      <!-- ========== Grok-4 ========== -->
+      
       <tr>
         <td rowspan="5">Grok-4</td>
         <td>GCG</td>
@@ -611,7 +642,7 @@
       <b>FPR</b> = False Positive Rate, the fraction of benign samples misclassified as attacks.
     </p> 
   </table>
-</div>
+</div> -->
 
 
 <hr style="margin: 2rem 0; border: none; border-top: 1px solid #ccc;">
